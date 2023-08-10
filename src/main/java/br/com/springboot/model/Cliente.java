@@ -2,17 +2,17 @@ package br.com.springboot.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name="clients")
@@ -24,7 +24,7 @@ public class Cliente {
 	@Column(nullable = false, length = 50)
 	private String nome;
 	@Column(length = 11)
-	private String cfp;
+	private String cpf;
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate dataDeNascimento;
@@ -38,6 +38,10 @@ public class Cliente {
 	private String email;
 	private boolean ativo;
 	
+	public Cliente() {
+		this.ativo = true;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,11 +54,11 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCfp() {
-		return cfp;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setCfp(String cfp) {
-		this.cfp = cfp;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
