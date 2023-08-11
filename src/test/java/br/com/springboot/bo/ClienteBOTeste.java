@@ -26,7 +26,7 @@ public class ClienteBOTeste {
 	public void insere() {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Tiago Godoy");
-		cliente.setCfp("01234567890");
+		cliente.setCpf("01234567890");
 		cliente.setDataDeNascimento(LocalDate.of(2000, 1, 1));
 		cliente.setSexo(Sexo.MASCULINO);
 		cliente.setTelefone("0123456789");
@@ -47,7 +47,7 @@ public class ClienteBOTeste {
 	@Order(3)
 	public void atualiza() {
 		Cliente cliente = bo.pesquisaPeloID(1L);
-		cliente.setCfp("98765432100");
+		cliente.setCpf("98765432100");
 		bo.atualiza(cliente);
 	}
 

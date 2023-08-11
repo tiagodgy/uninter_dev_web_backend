@@ -26,17 +26,28 @@ ss"
 				<div class="mb-6">
 					<label class="form-label" for="nome">Nome</label> <input
 						class="form-control" id="nome" type="text" th:field="*{nome}" />
+					<span style="color: red" th:if="${#fields.hasErrors('nome')}"
+						th:errors="*{nome}"></span>
 				</div>
 				<div class="row">
 					<div class="col-4 mb-3">
 						<label class="form-label" for="cpf">CPF</label> <input
-							class="form-control" id="cpf" type="text" th:field="*{cpf}">
+							class="form-control" id="cpf" type="text" th:field="*{cpf}" /> <span
+							style="color: red" th:if="${#fields.hasErrors('cpf')}"
+							th:errors="*{cpf}"></span>
 					</div>
 					<div class="col-4 mb-3">
 						<label class="form-label" for="dataDeNascimento"> Data de
-							Nascimento</label> <input class="form-control" id="dataDeNascimento"
-							type="date" th:field="*{dataDeNascimento}" />
+							Nascimento </label> <input class="form-control" id="dataDeNascimento"
+							type="date" th:field="*{dataDeNascimento}" /> <span
+							th:if="${#fields.hasErrors('dataDeNascimento')}"
+							style="color: red" th:errors="*{dataDeNascimento}"></span>
 					</div>
+					7 Ao realizar as alterações, inicie a aplicação e acesse a URL
+					http://localhost:8080/clientes/novo, informe um e-mail inválido e
+					clique no botão salvar. Note que agora os campos estão sendo
+					validados, conforme mostra a figura abaixo. Figura 1 – Validação do
+					formulário de cadastro
 					<div class="col-4 mb-3">
 						<label class="form-label" for="sexo">Sexo</label> <select
 							class="form-select" id="sexo" th:field="*{sexo}">
@@ -59,6 +70,8 @@ ss"
 					<div class="col-6 mb-3">
 						<label class="form-label" for="email">E-mail</label> <input
 							class="form-control" id="email" type="text" th:field="*{email}" />
+						<span style="color: red" th:if="${#fields.hasErrors('email')}"
+							th:errors="*{email}"></span>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -73,5 +86,23 @@ min.js"
 		integrity="sha384-
 ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
+	<script crossorigin="anonymous" referrerpolicy="no-referrer"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-
+894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG
+7TubfWGUrMQ=="></script>
+	<script crossorigin="anonymous" referrerpolicy="no-referrer"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery
+.maskedinput.min.js"
+		integrity="sha512-
+d4KkQohk+HswGs6A1d6Gak6Bb9rMWtxjOa0IiY49Q3TeFd5xAzjWXDCBW9RS7m86FQ4RzM2BdHm
+dJnnKRYknxw=="></script>
+	<script type="text/javascript">
+ $(document).ready(function(){
+ $('#cpf').mask('999.999.999-99');
+ $('#telefone').mask('(99) 9999-9999');
+ $('#celular').mask('(99) 99999-9999');
+ });
+</script>
 </body>
 </html>
